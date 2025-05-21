@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.aplikacjazawodowekon.Main" prefWidth="800" prefHeight="500"
+            style="-fx-background-color: #f7fafc;">
+
+    <top>
+        <ToolBar style="-fx-background-color: #2c5282; -fx-padding: 10;">
+            <Button text="Add Contact" onAction="#Add"
+                    style="-fx-background-color: #3182ce; -fx-text-fill: white; -fx-background-radius: 6;"/>
+            <Region fx:id="spacer" HBox.hgrow="ALWAYS"/>
+            <Button text="Log out" onAction="#Logout"
+                    style="-fx-background-color: #e53e3e; -fx-text-fill: white; -fx-background-radius: 6;"/>
+        </ToolBar>
+    </top>
+
+    <center>
+        <TableView fx:id="contactsTable"
+                   style="-fx-border-color: #cbd5e0; -fx-background-radius: 6; -fx-padding: 10; -fx-background-color: white;">
+            <columns>
+                <TableColumn fx:id="nameColumn" text="Full Name" prefWidth="300"/>
+            </columns>
+        </TableView>
+    </center>
+</BorderPane>
