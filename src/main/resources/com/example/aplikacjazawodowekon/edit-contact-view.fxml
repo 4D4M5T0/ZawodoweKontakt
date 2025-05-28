@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="350" prefWidth="400" style="-fx-background-color: linear-gradient(to bottom, #e2e8f0, #cbd5e0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aplikacjazawodowekon.EditContact">
+
+    <children>
+        <VBox alignment="CENTER" layoutX="50" layoutY="40" prefWidth="300" spacing="15" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0.5, 0, 2);">
+            <children>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #2d3748;" text="Edit Contact" />
+
+                <TextField fx:id="nameField" promptText="Full Name" style="-fx-background-radius: 8; -fx-padding: 10; -fx-border-color: #cbd5e0;" />
+
+                <TextField fx:id="emailField" promptText="E-mail" style="-fx-background-radius: 8; -fx-padding: 10; -fx-border-color: #cbd5e0;" />
+
+                <TextField fx:id="phoneField" promptText="Phone Number" style="-fx-background-radius: 8; -fx-padding: 10; -fx-border-color: #cbd5e0;" />
+
+                <HBox alignment="CENTER" spacing="10">
+                    <children>
+                        <Button onAction="#updateContact" style="-fx-background-color: #3182ce; -fx-text-fill: white; -fx-background-radius: 6;" text="Update" />
+                        <Button onAction="#cancel" style="-fx-background-color: #e53e3e; -fx-text-fill: white; -fx-background-radius: 6;" text="Cancel" />
+                    </children>
+                </HBox>
+            </children>
+        </VBox>
+    </children>
+</AnchorPane>
