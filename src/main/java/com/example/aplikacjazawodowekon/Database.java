@@ -44,6 +44,21 @@ public class Database {
         }
     }
 
+    public static void showAllUsers() {
+        try (Connection conn = connect();
+             Statement stmt = conn.createStatement()) {
+            ResultSet rs = stmt.executeQuery("SELECT * FROM Users");
+            while (rs.next()) {
+                System.out.println("ID: " + rs.getInt("id"));
+                System.out.println("Login: " + rs.getString("login"));
+                System.out.println("Password hash: " + rs.getString("password"));
+                System.out.println("---");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean registerUser(String login, String passwordHash) {
         try (Connection conn = connect();
              PreparedStatement stmt = conn.prepareStatement("INSERT INTO Users (login, password) VALUES (?, ?)")) {

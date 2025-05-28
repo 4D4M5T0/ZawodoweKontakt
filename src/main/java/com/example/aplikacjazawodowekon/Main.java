@@ -46,7 +46,7 @@ public class Main implements Initializable {
     @FXML
     protected void Add() {
         try {
-            HelloApplication.changeScene("add_contact-view.fxml", "Add Contact");
+            HelloApplication.changeScene("add-contact-view.fxml", "Add Contact");
         } catch (Exception e) {
             e.printStackTrace();
         }

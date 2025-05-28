@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dokumentacja aplikacji</title>
+</head>
+<body>
+
+<h1>Aplikacja do kontaktow</h1>
+
+<p>To jest aplikacja zrobiona w javie.</p>
+
+<h2>Co robi</h2>
+<p>Mozna sie zalogowac i dodawac kontakty. Tez mozna je usuwac i edytowac.</p>
+
+<ul>
+    <li>Logowanie</li>
+    <li>Dodawanie kontaktow</li>
+    <li>Usuwanie kontaktow</li>
+    <li>Edytowanie kontaktow</li>
+</ul>
+
+<h2>Technologie</h2>
+<p>Java, JavaFX, SQLite</p>
+
+<h2>Pliki</h2>
+<p>W aplikacji sa takie pliki:</p>
+<ul>
+    <li>HelloApplication.java - glowna klasa</li>
+    <li>Login.java - do logowania</li>
+    <li>Main.java - glowne okno</li>
+    <li>AddContact.java - dodawanie kontaktow</li>
+    <li>EditContact.java - edytowanie kontaktow</li>
+    <li>Contacts.java - pokazywanie szczegolów</li>
+    <li>Contact.java - klasa kontaktu</li>
+    <li>Database.java - baza danych</li>
+    <li>HashUtil.java - do haszowania</li>
+</ul>
+
+<p>Tez sa pliki fxml:</p>
+<ul>
+    <li>login-view.fxml</li>
+    <li>main-view.fxml</li>
+    <li>add-contact-view.fxml</li>
+    <li>edit-contact-view.fxml</li>
+    <li>contacts-views.fxml</li>
+</ul>
+
+<h2>Baza danych</h2>
+<p>Aplikacja ma baze SQLite z tabelami Users i Contacts.</p>
+
+<p>Tabela Users:</p>
+<ul>
+    <li>id</li>
+    <li>login</li>
+    <li>password</li>
+</ul>
+
+<p>Tabela Contacts:</p>
+<ul>
+    <li>id</li>
+    <li>first_name</li>
+    <li>last_name</li>
+    <li>email</li>
+    <li>phone</li>
+    <li>user_id</li>
+</ul>
+
+<h2>Bezpieczenstwo</h2>
+<p>Hasla sa haszowane przez SHA-256 w klasie HashUtil.</p>
+
+<h2>Jak uzyc</h2>
+<p>1. Uruchom aplikacje</p>
+<p>2. Zarejestruj sie albo zaloguj</p>
+<p>3. Dodaj kontakty</p>
+<p>4. Mozesz je potem edytowac albo usuwac</p>
+
+<h2>Walidacja</h2>
+<p>Aplikacja sprawdza czy email jest dobry i czy telefon ma tylko cyfry.</p>
+
+
+</body>
+</html>
