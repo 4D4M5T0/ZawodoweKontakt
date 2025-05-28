@@ -26,11 +26,7 @@ public class Main implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
 
-        if (contacts.isEmpty()) {
-            contacts.add(new Contact("Jan Kowalski", "jan.kowalski@example.com", "123456789"));
-        }
-
-        contactsTable.setItems(contacts);
+        loadContacts();
 
         contactsTable.setOnMouseClicked(event -> {
             if (event.getClickCount() == 1) {
@@ -59,10 +55,20 @@ public class Main implements Initializable {
     @FXML
     protected void Logout() {
         try {
+            Login.currentUserId = -1;
+            contacts.clear();
             HelloApplication.changeScene("login-view.fxml", "Login");
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadContacts() {
+        contacts.clear();
+        if (Login.currentUserId != -1) {
+            contacts.addAll(Database.getContacts(Login.currentUserId));
+        }
+        contactsTable.setItems(contacts);
     }
 
     public static Contact getSelectedContact() {
@@ -71,5 +77,12 @@ public class Main implements Initializable {
 
     public static void addContact(Contact contact) {
         contacts.add(contact);
+    }
+
+    public static void refreshContacts() {
+        contacts.clear();
+        if (Login.currentUserId != -1) {
+            contacts.addAll(Database.getContacts(Login.currentUserId));
+        }
     }
 }

@@ -6,14 +6,7 @@ import javafx.scene.control.TextField;
 
 public class AddContact {
 
-    @FXML
-    private TextField nameField;
-
-    @FXML
-    private TextField emailField;
-
-    @FXML
-    private TextField phoneField;
+    @FXML private TextField nameField, emailField, phoneField;
 
     @FXML
     protected void saveContact() {
@@ -21,46 +14,50 @@ public class AddContact {
         String email = emailField.getText().trim();
         String phone = phoneField.getText().trim();
 
-        if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Missing Information");
-            alert.setContentText("Please fill in all fields");
-            alert.showAndWait();
-            return;
-        }
+        if (!validateInput(name, email, phone)) return;
 
-        if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Invalid Email");
-            alert.setContentText("Please enter a valid email address");
-            alert.showAndWait();
-            return;
-        }
+        String[] parts = name.split(" ", 2);
+        String firstName = parts[0];
+        String lastName = parts.length > 1 ? parts[1] : "";
 
-        if (!phone.matches("\\d+")) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("Invalid Phone Number");
-            alert.setContentText("Phone number should contain only digits");
-            alert.showAndWait();
-            return;
-        }
-
-        Contact newContact = new Contact(name, email, phone);
-
-        Main.addContact(newContact);
-
-        try {
-            HelloApplication.changeScene("main-view.fxml", "Contacts");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        Database.addContact(firstName, lastName, email, phone, Login.currentUserId);
+        Main.refreshContacts();
+        goToMainView();
     }
 
     @FXML
     protected void cancel() {
+        goToMainView();
+    }
+
+    private boolean validateInput(String name, String email, String phone) {
+        if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
+            showAlert("Missing Information", "Please fill in all fields");
+            return false;
+        }
+
+        if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
+            showAlert("Invalid Email", "Please enter a valid email address");
+            return false;
+        }
+
+        if (!phone.matches("\\d+")) {
+            showAlert("Invalid Phone Number", "Phone number should contain only digits");
+            return false;
+        }
+
+        return true;
+    }
+
+    private void showAlert(String header, String content) {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Error");
+        alert.setHeaderText(header);
+        alert.setContentText(content);
+        alert.showAndWait();
+    }
+
+    private void goToMainView() {
         try {
             HelloApplication.changeScene("main-view.fxml", "Contacts");
         } catch (Exception e) {

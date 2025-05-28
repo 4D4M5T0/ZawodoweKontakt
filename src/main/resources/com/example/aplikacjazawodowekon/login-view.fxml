@@ -6,25 +6,29 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="300" prefWidth="400" style="-fx-background-color: linear-gradient(to bottom, #4299e1, #2b6cb0);" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aplikacjazawodowekon.Login">
+<AnchorPane prefHeight="300" prefWidth="400" style="-fx-background-color: #f8f9fa;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.aplikacjazawodowekon.Login">
 
     <children>
-        <VBox alignment="CENTER" layoutX="50" layoutY="40" prefHeight="220" prefWidth="300" spacing="15" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 10, 0.5, 0, 2);">
-           <children>
-   
-               <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #2a4365;" text="Log in/Register" />
-   
-               <TextField fx:id="emailField" promptText="Login" style="-fx-background-radius: 8; -fx-padding: 10; -fx-border-color: #cbd5e0;" />
-   
-               <PasswordField fx:id="passwordField" promptText="Password" style="-fx-background-radius: 8; -fx-padding: 10; -fx-border-color: #cbd5e0;" />
-   
-               <HBox alignment="CENTER" spacing="10">
-      <children>
-                      <Button onAction="#Login" style="-fx-background-color: #3182ce; -fx-text-fill: white; -fx-background-radius: 8;" text="Log in" />
-                      <Button onAction="#Register" style="-fx-background-color: #38a169; -fx-text-fill: white; -fx-background-radius: 8;" text="Register" />
-      </children>
-               </HBox>
-           </children>
+        <VBox alignment="CENTER" layoutX="75" layoutY="50" prefHeight="200" prefWidth="250" spacing="15"
+              style="-fx-background-color: white; -fx-border-color: #dee2e6; -fx-border-width: 2; -fx-padding: 25; -fx-background-radius: 10; -fx-border-radius: 10;">
+            <children>
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #343a40;" text="Logowanie" />
+
+                <TextField fx:id="emailField" promptText="Login" prefWidth="200"
+                           style="-fx-border-color: #ced4da; -fx-border-radius: 5; -fx-padding: 8;"/>
+
+                <PasswordField fx:id="passwordField" promptText="Hasło" prefWidth="200"
+                               style="-fx-border-color: #ced4da; -fx-border-radius: 5; -fx-padding: 8;"/>
+
+                <HBox alignment="CENTER" spacing="15">
+                    <children>
+                        <Button onAction="#Login" prefWidth="90" text="Zaloguj"
+                                style="-fx-background-color: #007bff; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;"/>
+                        <Button onAction="#Register" prefWidth="90" text="Rejestruj"
+                                style="-fx-background-color: #6c757d; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 5; -fx-padding: 8;"/>
+                    </children>
+                </HBox>
+            </children>
         </VBox>
     </children>
 </AnchorPane>

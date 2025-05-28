@@ -9,12 +9,17 @@ import java.io.IOException;
 
 public class HelloApplication extends Application {
     public static Stage mainStage;
+
     @Override
     public void start(Stage stage) throws IOException {
         mainStage = stage;
+
+        Database.initialize();
+
         changeScene("login-view.fxml", "Login");
         mainStage.show();
     }
+
     public static void changeScene(String fxmlFile, String title) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/com/example/aplikacjazawodowekon/" + fxmlFile));
         Scene scene = new Scene(fxmlLoader.load());
