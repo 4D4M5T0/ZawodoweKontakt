@@ -44,7 +44,7 @@ public class EditContact implements Initializable {
             showSuccessAlert();
             goToMainView();
         } else {
-            showAlert("Update Failed", "Failed to update contact. Email might already exist.");
+            showAlert("Aktualizacja nieudana", "Nie udało się zaktualizować kontaktu. Adres e-mail może już istnieć.");
         }
     }
 
@@ -59,17 +59,17 @@ public class EditContact implements Initializable {
 
     private boolean validateInput(String name, String email, String phone) {
         if (name.isEmpty() || email.isEmpty() || phone.isEmpty()) {
-            showAlert("Missing Information", "Please fill in all fields");
+            showAlert("Brakujące informacje", "Proszę wypełnić wszystkie pola");
             return false;
         }
 
         if (!email.matches("^[\\w-\\.]+@([\\w-]+\\.)+[\\w-]{2,4}$")) {
-            showAlert("Invalid Email", "Please enter a valid email address");
+            showAlert("Nieprawidłowy adres e-mail", "Proszę wprowadzić prawidłowy adres e-mail");
             return false;
         }
 
         if (!phone.matches("\\d+")) {
-            showAlert("Invalid Phone Number", "Phone number should contain only digits");
+            showAlert("Nieprawidłowy numer telefonu", "Numer telefonu powinien zawierać tylko cyfry");
             return false;
         }
 
@@ -78,7 +78,7 @@ public class EditContact implements Initializable {
 
     private void showAlert(String header, String content) {
         Alert alert = new Alert(Alert.AlertType.ERROR);
-        alert.setTitle("Error");
+        alert.setTitle("Błąd");
         alert.setHeaderText(header);
         alert.setContentText(content);
         alert.showAndWait();
@@ -86,9 +86,9 @@ public class EditContact implements Initializable {
 
     private void showSuccessAlert() {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Success");
-        alert.setHeaderText("Contact Updated");
-        alert.setContentText("Contact has been successfully updated.");
+        alert.setTitle("Sukces");
+        alert.setHeaderText("Kontakt zaktualizowany");
+        alert.setContentText("Kontakt został pomyślnie zaktualizowany.");
         alert.showAndWait();
     }
 

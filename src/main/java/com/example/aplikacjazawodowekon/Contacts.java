@@ -33,7 +33,7 @@ public class Contacts implements Initializable {
     @FXML
     protected void Edit() {
         if (currentContact == null) {
-            showAlert("Error", "No contact selected");
+            showAlert("Błąd", "Nie wybrano kontaktu");
             return;
         }
         changeScene("edit-contact-view.fxml", "Edit Contact");
@@ -42,14 +42,14 @@ public class Contacts implements Initializable {
     @FXML
     protected void Delete() {
         if (currentContact == null) {
-            showAlert("Error", "No contact selected");
+            showAlert("Błąd", "Nie wybrano kontaktu");
             return;
         }
 
         Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
-        confirmAlert.setTitle("Confirm Delete");
-        confirmAlert.setHeaderText("Delete Contact");
-        confirmAlert.setContentText("Are you sure you want to delete this contact?");
+        confirmAlert.setTitle("Potwierdź usunięcie");
+        confirmAlert.setHeaderText("Usuń kontakt");
+        confirmAlert.setContentText("Czy na pewno chcesz usunąć ten kontakt?");
 
         Optional<ButtonType> result = confirmAlert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
@@ -71,7 +71,7 @@ public class Contacts implements Initializable {
             HelloApplication.changeScene(fxml, title);
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error", "Failed to change scene");
+            showAlert("Błąd", "Nie udało się zmienić widoku");
         }
     }
 }

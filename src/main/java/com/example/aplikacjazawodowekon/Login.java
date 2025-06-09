@@ -26,11 +26,11 @@ public class Login {
                 Login.currentUserId = userId;
                 HelloApplication.changeScene("main-view.fxml", "Contacts");
             } else {
-                showAlert("Login failed", "Invalid login or password");
+                showAlert("Logowanie nieudane", "Nieprawidłowy login lub hasło");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error", "An error occurred during login");
+            showAlert("Błąd", "Wystąpił błąd podczas logowania");
         }
     }
 
@@ -46,19 +46,19 @@ public class Login {
             boolean success = Database.registerUser(login, hash);
 
             if (success) {
-                showAlert("Success", "Registration successful! Now log in.");
+                showAlert("Sukces", "Rejestracja pomyślna! Teraz się zaloguj.");
             } else {
-                showAlert("Error", "User already exists or registration failed.");
+                showAlert("Błąd", "Użytkownik już istnieje lub rejestracja nieudana.");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            showAlert("Error", "An error occurred during registration");
+            showAlert("Błąd", "Wystąpił błąd podczas rejestracji");
         }
     }
 
     private boolean validateFields(String login, String password) {
         if (login.isEmpty() || password.isEmpty()) {
-            showAlert("Error", "Please fill in all fields");
+            showAlert("Błąd", "Proszę wypełnić wszystkie pola");
             return false;
         }
         return true;
