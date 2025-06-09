@@ -15,7 +15,7 @@ public class HelloApplication extends Application {
         mainStage = stage;
         /*Database.showAllUsers();*/
 
-        Database.initialize();
+        /*Database.initialize();*/
 
         changeScene("login-view.fxml", "Login");
         mainStage.show();
