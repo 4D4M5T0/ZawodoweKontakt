@@ -68,15 +68,30 @@
 <h2>Bezpieczenstwo</h2>
 <p>Hasla sa haszowane przez SHA-256 w klasie HashUtil.</p>
 
+<h2>Jak uruchomic w CMD (Wierszu Polecen)</h2>
+<p>Aplikacja korzysta z JavaFX, dlatego najprosciej uruchomic ja przy pomocy narzedzia Maven, ktore samo pobierze potrzebne biblioteki graficzne i baze danych.</p>
+
+<p>1. Upewnij sie, ze masz zainstalowana Jave (JDK 17 lub nowsza) – mozesz to sprawdzic wpisujac w CMD komende: <code>java -version</code></p>
+
+<p>2. Otworz CMD i przejdz do folderu z aplikacja</p>
+
+<p>3. Wpisz ponizsza komende, aby skompilowac projekt i odpalic okno aplikacji:</p>
+<pre>mvnw javafx:run</pre>
+
+<p>4. Alternatywnie mozesz zbudowac gotowy plik JAR komenda:</p>
+<pre>mvnw clean package</pre>
+<p>A nastepnie wejsc do folderu target i go uruchomic:</p>
+<pre>cd target
+java -jar ZawodoweKontakt.jar</pre>
+
 <h2>Jak uzyc</h2>
-<p>1. Uruchom aplikacje</p>
+<p>1. Uruchom aplikacje (zgodnie z instrukcja wyzej)</p>
 <p>2. Zarejestruj sie albo zaloguj</p>
 <p>3. Dodaj kontakty</p>
 <p>4. Mozesz je potem edytowac albo usuwac</p>
 
 <h2>Walidacja</h2>
 <p>Aplikacja sprawdza czy email jest dobry i czy telefon ma tylko cyfry.</p>
-
 
 </body>
 </html>
